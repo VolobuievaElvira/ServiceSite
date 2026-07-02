@@ -1,0 +1,80 @@
+﻿@page "/register"
+@rendermode InteractiveServer
+
+@using ClassLibrary.Interfaces
+@using ClassLibrary.Classes
+@using ClassLibrary.Data
+
+@inject NavigationManager Navigation
+@inject IAuthenticationService AuthenticationService
+@inject UserRepository UserRepository
+@inject UserFactory UserFactory
+
+<style>
+	body {
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	}
+
+	.register {
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 70vh;
+	gap: 10px;
+	}
+
+	.register_and_recovery {
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	}
+</style>
+
+<div class="register">
+	<label>@_name</label>
+
+	<label>Name</label>
+	<input @bind="_name"/>
+
+	<label>Email</label>
+	<input type="email" @bind="_email"/>
+
+	<label>Password</label>
+	<input type="password" @bind="_password"/>
+
+	<label>Repeat password</label>
+	<input type="password" @bind="_repeated_password"/>
+
+	<div class="register_and_recovery">
+		<button @onclick="TryRegister">Register</button>
+		<label>or</label>
+		<a href="/login">Log in</a>
+	</div>
+
+</div>
+
+@code {
+	string message = "";
+	string _name = "";
+	string _email = "";
+	string _password = "";
+	string _repeated_password = "";
+
+	public void TryRegister()
+	{
+		if(Equals(_password, _repeated_password))
+		{
+			UserRepository.AddUser(UserFactory.CreateCostumer(_name, _email, _password));
+			Navigation.NavigateTo("/login");
+		}
+		else {
+			
+		}
+	}
+}

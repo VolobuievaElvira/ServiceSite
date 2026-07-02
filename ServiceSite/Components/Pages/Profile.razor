@@ -1,0 +1,11 @@
+﻿@page "/profile"
+@rendermode InteractiveServer
+
+@using ClassLibrary.Services
+@inject CurrentUserService CurrentUserService
+
+<h3>Hello, @(@CurrentUserService.GetUser()?.Name == null)Null:@CurrentUserService.GetUser()?.Name</h3>
+
+@code {
+
+}
