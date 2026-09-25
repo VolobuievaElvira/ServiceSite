@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ClassLibrary.Classes;
+using ClassLibrary.Interfaces.Services;
+using ClassLibrary.Users;
 
 namespace ClassLibrary.Services
 {
-    public class CurrentUserService
+    public class CurrentUserService : ICurrentUserService
     {
         User? _user;
 
@@ -16,7 +17,7 @@ namespace ClassLibrary.Services
             return _user;
         }
 
-        public void SetUser(User user)
+        public void SetUser(User? user)
         {
             _user = user;
         }

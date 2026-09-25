@@ -1,0 +1,267 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ClassLibrary.Data.OrderRepositoryJSON">
+    <Position X="6.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAEAAAAAAAAAAAAAAAAAAEAAAwAAAAAAEAA=</HashCode>
+      <FileName>Data\OrderRepositoryJSON.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ClassLibrary.Data.UserRepositoryJSON">
+    <Position X="13.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAAAAAAAAAIAgAgAAAAAAAAA=</HashCode>
+      <FileName>Data\UserRepositoryJSON.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ClassLibrary.Exceptions.CustomException">
+    <Position X="3.75" Y="1" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions\CustomException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClassLibrary.Exceptions.EnumExceptionExtensions">
+    <Position X="3.75" Y="3" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions\EnumExceptionExtensions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClassLibrary.Orders.Order">
+    <Position X="13.5" Y="7.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>ABAKAAAEQQAgAAAAAAAAAAAAEAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Orders\Order.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClassLibrary.ProfileManagementService.AdminProfileManagementService">
+    <Position X="15.5" Y="8.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ProfileManagementService\AdminProfileManagementService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ClassLibrary.ProfileManagementService.CostumerProfileManagementService">
+    <Position X="18.5" Y="8.25" Width="2.75" />
+    <InheritanceLine Type="ClassLibrary.ProfileManagementService.UserProfileManagementService" FixedFromPoint="true">
+      <Path>
+        <Point X="17.25" Y="7.709" />
+        <Point X="17.25" Y="7.95" />
+        <Point X="19.875" Y="7.95" />
+        <Point X="19.875" Y="8.25" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>ProfileManagementService\CostumerProfileManagementService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ClassLibrary.ProfileManagementService.MasterProfileManagementService">
+    <Position X="18.5" Y="6" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>ProfileManagementService\MasterProfileManagementService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ClassLibrary.ProfileManagementService.UserProfileManagementService">
+    <Position X="15.5" Y="5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAEAAgAAAAAAACAAAAAAAAAAAAAAAAUAACAA=</HashCode>
+      <FileName>ProfileManagementService\UserProfileManagementService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ClassLibrary.Services.AuthenticationService">
+    <Position X="5.75" Y="4.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAEAAAAAAAAAAAAIAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>Services\AuthenticationService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ClassLibrary.Services.CurrentUserService">
+    <Position X="8" Y="6.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAEAABAAAAAAA=</HashCode>
+      <FileName>Services\CurrentUserService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ClassLibrary.Services.OrderSearchService">
+    <Position X="5.5" Y="6.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEABAAAAA=</HashCode>
+      <FileName>Services\OrderSearchService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ClassLibrary.Services.OrederService">
+    <Position X="10" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAQAAAAgAAAAAAAAAAgAAAAAQAAABAAAAA=</HashCode>
+      <FileName>Services\OrderService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ClassLibrary.Users.Admin">
+    <Position X="10" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Users\Admin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClassLibrary.Users.Costumer">
+    <Position X="10" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Users\Costumer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClassLibrary.Users.Master">
+    <Position X="13.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAACAAAAAAAAAAgAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>Users\Master.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClassLibrary.Users.User">
+    <Position X="11.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAACAAgCABAAACCAQAAAAAAAgCAAAAAEAACAA=</HashCode>
+      <FileName>Users\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClassLibrary.Users.UserFactory">
+    <Position X="8.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAQAAAAAAAAAAEAAAAAIAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Users\UserFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="ClassLibrary.Interfaces.Data.IOrderRepository">
+    <Position X="8.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAwAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\Data\IOrderRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ClassLibrary.Interfaces.Data.IUserRepository">
+    <Position X="10" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAgAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\Data\IUserRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ClassLibrary.Interfaces.Profile.IAdminProfileManagementService">
+    <Position X="18.25" Y="2.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\Profile\IAdminProfileManagementService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ClassLibrary.Interfaces.Profile.ICostumerProfileManagementService">
+    <Position X="18.25" Y="1.25" Width="2.75" />
+    <InheritanceLine Type="ClassLibrary.Interfaces.Profile.IUserProfileManagementService" FixedToPoint="true">
+      <Path>
+        <Point X="16.5" Y="2.5" />
+        <Point X="16.5" Y="2.062" />
+        <Point X="18.25" Y="2.062" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\Profile\ICostumerProfileManagementService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ClassLibrary.Interfaces.Profile.IMasterProfileManagementService">
+    <Position X="18.25" Y="4" Width="2.75" />
+    <InheritanceLine Type="ClassLibrary.Interfaces.Profile.IUserProfileManagementService" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="16.562" Y="4.373" />
+        <Point X="16.562" Y="4.688" />
+        <Point X="18.25" Y="4.688" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>Interfaces\Profile\IMasterProfileManagementService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ClassLibrary.Interfaces.Profile.IUserProfileManagementService">
+    <Position X="15.25" Y="2.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAACAAAAAAAAAAAAAAAAUAACAA=</HashCode>
+      <FileName>Interfaces\Profile\IUserProfileManagementService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ClassLibrary.Interfaces.Services.IAuthenticationService">
+    <Position X="7.75" Y="4.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>Interfaces\Services\IAuthenticationService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ClassLibrary.Interfaces.Services.ICurrentUserService">
+    <Position X="8" Y="3.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAABAAAAAAA=</HashCode>
+      <FileName>Interfaces\Services\ICurrentUserService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ClassLibrary.Interfaces.Data.IOrderSearchService">
+    <Position X="4.25" Y="8.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>Interfaces\Services\IOrderSearchService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ClassLibrary.Interfaces.Data.IOrderService">
+    <Position X="6.5" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAgAAAAAAAAAAgAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\Services\IOrderService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="ClassLibrary.Enums.AppMessage">
+    <Position X="3.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QCACIAAAAAAAEAACAADAAIBAQIAAABAAAAABAIARAAA=</HashCode>
+      <FileName>Enums\AppMessage.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ClassLibrary.Enums.Country">
+    <Position X="21.5" Y="3" Width="1.25" />
+    <TypeIdentifier>
+      <HashCode>AgAgBCCRAAoAAEAAAAUAwEAIAAAgATAAAQAEgAAAkAA=</HashCode>
+      <FileName>Enums\Country.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ClassLibrary.Enums.OrderStatus">
+    <Position X="11.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAIAAAAgA=</HashCode>
+      <FileName>Enums\OrderStatus.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ClassLibrary.Enums.ServiceType">
+    <Position X="11.75" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAgAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAg=</HashCode>
+      <FileName>Enums\ServiceType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ClassLibrary.Enums.UserRole">
+    <Position X="11.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAEAAACAAAAAAQAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Enums\UserRole.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

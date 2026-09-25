@@ -1,11 +1,102 @@
 ﻿@page "/profile"
 @rendermode InteractiveServer
 
-@using ClassLibrary.Services
-@inject CurrentUserService CurrentUserService
+@using ClassLibrary.Users
+@using ClassLibrary.Interfaces.Services
+@using ClassLibrary.Interfaces.Profile
 
-<h3>Hello, @(@CurrentUserService.GetUser()?.Name == null)Null:@CurrentUserService.GetUser()?.Name</h3>
+@inject ICurrentUserService CurrentUserService
+@inject IUserProfileManagementService ProfileService
+@inject NavigationManager Navigation
+
+<h3>Profile</h3>
+
+@if (user == null)
+{
+    <p>You are not logged in.</p>
+    <a href="/login">Log in</a>
+}
+else
+{
+    <div>
+        <label>Name</label>
+        <input @bind="name" />
+        <button @onclick="ChangeName">Save</button>
+    </div>
+
+    <div>
+        <label>Email</label>
+        <input type="email" @bind="email" />
+        <button @onclick="ChangeEmail">Save</button>
+    </div>
+
+    <div>
+        <label>Password</label>
+        <input type="password" @bind="oldPassword" placeholder="Old password" />
+        <input type="password" @bind="newPassword" placeholder="New password" />
+        <button @onclick="ChangePassword">Change password</button>
+    </div>
+
+    <div>
+        <label>Photo</label>
+        <input @bind="photo" />
+        <button @onclick="ChangePhoto">Save</button>
+    </div>
+
+    <p>@message</p>
+
+    <button @onclick="DeleteAccount">Delete account</button>
+}
 
 @code {
+    User? user;
 
+    string name = "";
+    string email = "";
+    string oldPassword = "";
+    string newPassword = "";
+    string photo = "";
+    string message = "";
+
+    protected override void OnInitialized()
+    {
+        user = CurrentUserService.GetUser();
+
+        if (user != null)
+        {
+            name = user.Name;
+            email = user.Email;
+            photo = user.Photo;
+        }
+    }
+
+    void ChangeName()
+    {
+        ProfileService.ChangeName(user!, name);
+        message = "Name updated";
+    }
+
+    void ChangeEmail()
+    {
+        ProfileService.ChangeEmail(user!, email);
+        message = "Email updated";
+    }
+
+    void ChangePassword()
+    {
+        ProfileService.ChangePassword(user!, oldPassword, newPassword);
+        message = "Password updated";
+    }
+
+    void ChangePhoto()
+    {
+        ProfileService.ChangePhoto(user!, photo);
+        message = "Photo updated";
+    }
+
+    void DeleteAccount()
+    {
+        ProfileService.DeleteAccount(user!);
+        Navigation.NavigateTo("/login");
+    }
 }

@@ -1,8 +1,9 @@
 using ServiceSite.Components;
 using ClassLibrary.Services;
-using ClassLibrary.Interfaces;
-using ClassLibrary.Classes;
 using ClassLibrary.Data;
+using ClassLibrary.Interfaces.Data;
+using ClassLibrary.Interfaces.Services;
+using ClassLibrary.Users;
 
 namespace ServiceSite;
 
@@ -12,22 +13,19 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
-        // Add services to the container.
         builder.Services.AddRazorComponents()
             .AddInteractiveServerComponents();
 
-        builder.Services.AddScoped<UserRepository>();
+        builder.Services.AddScoped<IUserRepository, UserRepositoryJSON>();
         builder.Services.AddScoped<UserFactory>();
-        builder.Services.AddScoped<CurrentUserService>();
+        builder.Services.AddScoped<ICurrentUserService, CurrentUserService>();
         builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
 
         var app = builder.Build();
 
-        // Configure the HTTP request pipeline.
         if (!app.Environment.IsDevelopment())
         {
             app.UseExceptionHandler("/Error");
-            // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
             app.UseHsts();
         }
 

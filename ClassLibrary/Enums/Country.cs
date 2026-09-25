@@ -1,0 +1,34 @@
+﻿namespace ClassLibrary.Enums
+{
+    public enum Country
+    {
+        Austria,
+        Belgium,
+        Bulgaria,
+        Croatia,
+        Cyprus,
+        CzechRepublic,
+        Denmark,
+        Estonia,
+        Finland,
+        France,
+        Germany,
+        Greece,
+        Hungary,
+        Ireland,
+        Italy,
+        Latvia,
+        Lithuania,
+        Luxembourg,
+        Netherlands,
+        Poland,
+        Portugal,
+        Romania,
+        Slovakia,
+        Slovenia,
+        Spain,
+        Sweden,
+        Ukraine,
+        UnitedKingdom
+    };
+}

@@ -1,80 +1,111 @@
 ﻿@page "/register"
 @rendermode InteractiveServer
 
-@using ClassLibrary.Interfaces
-@using ClassLibrary.Classes
 @using ClassLibrary.Data
+@using ClassLibrary.Users
+@using ClassLibrary.Interfaces.Data
+@using ClassLibrary.Interfaces.Services
 
 @inject NavigationManager Navigation
-@inject IAuthenticationService AuthenticationService
-@inject UserRepository UserRepository
+@inject IUserRepository UserRepository
 @inject UserFactory UserFactory
 
 <style>
-	body {
-	margin: 0;
-	padding: 0;
-	overflow: hidden;
-	}
+    body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
 
-	.register {
-	text-align: center;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	height: 70vh;
-	gap: 10px;
-	}
+    .register {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 70vh;
+        gap: 10px;
+    }
 
-	.register_and_recovery {
-	text-align: center;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	}
+    .register_and_recovery {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .error {
+        color: red;
+    }
 </style>
 
 <div class="register">
-	<label>@_name</label>
+    <h1>Register</h1>
 
-	<label>Name</label>
-	<input @bind="_name"/>
+    <label>Name</label>
+    <input @bind="_name" />
 
-	<label>Email</label>
-	<input type="email" @bind="_email"/>
+    <label>Email</label>
+    <input type="email" @bind="_email" />
 
-	<label>Password</label>
-	<input type="password" @bind="_password"/>
+    <label>Password</label>
+    <input type="password" @bind="_password" />
 
-	<label>Repeat password</label>
-	<input type="password" @bind="_repeated_password"/>
+    <label>Repeat password</label>
+    <input type="password" @bind="_repeatedPassword" />
 
-	<div class="register_and_recovery">
-		<button @onclick="TryRegister">Register</button>
-		<label>or</label>
-		<a href="/login">Log in</a>
-	</div>
+    <div class="register_and_recovery">
+        <button @onclick="TryRegister">Register</button>
 
+        @if (!string.IsNullOrEmpty(message))
+        {
+            <label class="error">@message</label>
+        }
+
+        <label>or</label>
+        <a href="/login">Log in</a>
+    </div>
 </div>
 
 @code {
-	string message = "";
-	string _name = "";
-	string _email = "";
-	string _password = "";
-	string _repeated_password = "";
+    string message = "";
+    string _name = "";
+    string _email = "";
+    string _password = "";
+    string _repeatedPassword = "";
 
-	public void TryRegister()
-	{
-		if(Equals(_password, _repeated_password))
-		{
-			UserRepository.AddUser(UserFactory.CreateCostumer(_name, _email, _password));
-			Navigation.NavigateTo("/login");
-		}
-		else {
-			
-		}
-	}
+    public void TryRegister()
+    {
+        message = "";
+
+        if (string.IsNullOrWhiteSpace(_name) ||
+            string.IsNullOrWhiteSpace(_email) ||
+            string.IsNullOrWhiteSpace(_password))
+        {
+            message = "Fill in all fields";
+            return;
+        }
+
+        if (_password != _repeatedPassword)
+        {
+            message = "Passwords do not match";
+            return;
+        }
+
+        if (UserRepository.GetAll().Any(x => x.Email == _email))
+        {
+            message = "Email already registered";
+            return;
+        }
+
+        User user = UserFactory.CreateCostumer(
+            _name,
+            _email,
+            _password);
+
+        UserRepository.AddUser(user);
+
+        Navigation.NavigateTo("/login");
+    }
 }

@@ -1,70 +1,89 @@
 ﻿@page "/login"
 @rendermode InteractiveServer
 
-@using ClassLibrary.Interfaces
-@using ClassLibrary.Classes
-@using ClassLibrary.Services
+@using ClassLibrary.Interfaces.Services
+@using ClassLibrary.Exceptions
+@using ClassLibrary.Users
 
 @inject NavigationManager Navigation
 @inject IAuthenticationService AuthenticationService
-@inject CurrentUserService CurrentUserService
 
 <style>
-	body{
-	margin: 0;
-	padding: 0;
-	overflow: hidden;
-	}
-	.login{
-	text-align: center;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	height: 60vh;
-	gap: 10px;
-	}
-	.register_and_recovery{
-	text-align: center;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	}
+    body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    .login {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 60vh;
+        gap: 10px;
+    }
+
+    .register_and_recovery {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .error {
+        color: red;
+    }
 </style>
 
 <div class="login">
-	<label>Email</label>
-	<input type="email" @bind="_email" />
+    <h1>Log in</h1>
 
-	<label>Password</label>
-	<input type="password" @bind="_password"/>
+    <label>Email</label>
+    <input type="email" @bind="_email" />
 
-	<button @onclick="TryLogIn">Log in</button>
+    <label>Password</label>
+    <input type="password" @bind="_password" />
 
-	<div class="register_and_recovery" style="">
-		<a href="/error404">Forgot your password?</a>
+    <button @onclick="TryLogIn">Log in</button>
 
-		<label>or</label>
-		<a href="/register">Create a new account</a>
-	</div>
+    @if (!string.IsNullOrEmpty(message))
+    {
+        <label class="error">@message</label>
+    }
+
+    <div class="register_and_recovery">
+        <a href="/error404">Forgot your password?</a>
+
+        <label>or</label>
+
+        <a href="/register">Create a new account</a>
+    </div>
 </div>
 
 @code {
-	string _email = "";
-	string _password = "";
+    string _email = "";
+    string _password = "";
+    string message = "";
 
-	public void TryLogIn()
-	{
-		User? _user = AuthenticationService.Login(_email, _password);
-		if (_user is not null)
-		{
-			CurrentUserService.SetUser(_user);
-			Navigation.NavigateTo("/profile");
-		}
-		else
-		{
+    public void TryLogIn()
+    {
+        message = "";
 
-		}
-	}
+        try
+        {
+            User? user = AuthenticationService.Login(_email, _password);
+
+            if (user is not null)
+            {
+                Navigation.NavigateTo("/profile");
+            }
+        }
+        catch (CustomException ex)
+        {
+            message = ex.Message;
+        }
+    }
 }

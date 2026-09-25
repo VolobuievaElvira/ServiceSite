@@ -1,4 +1,5 @@
-﻿using ClassLibrary.Classes;
+﻿using ClassLibrary.Interfaces.Data;
+using ClassLibrary.Users;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary.Data
 {
-    public class UserRepository
+    public class UserRepositoryJSON : IUserRepository
     {
-        private List<User> _users = new();
+        private readonly List<User> _users = new();
 
-        public List<User> GetAll()
+        public IEnumerable<User> GetAll()
         {
             return _users;
         }
@@ -20,6 +21,11 @@ namespace ClassLibrary.Data
         public void AddUser(User user) 
         {
             _users.Add(user); 
+        }
+
+        public void RemoveUser(User user)
+        {
+            _users.Remove(user);
         }
 
         //LoadJSON

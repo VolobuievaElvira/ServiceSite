@@ -1,37 +1,45 @@
 ﻿using ClassLibrary.Data;
-using ClassLibrary.Classes;
 using System.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ClassLibrary.Interfaces;
+using ClassLibrary.Exceptions;
+using ClassLibrary.Enums;
+using ClassLibrary.Interfaces.Data;
+using ClassLibrary.Interfaces.Services;
+using ClassLibrary.Users;
 
 namespace ClassLibrary.Services
 {
     public class AuthenticationService : IAuthenticationService
     {
-        private readonly UserRepository _repository;
-
-        public AuthenticationService(UserRepository repository)
+        private readonly IUserRepository _userRepository;
+        private readonly ICurrentUserService _currentUserService;
+        public AuthenticationService(IUserRepository userRepository, ICurrentUserService currentUserService)
         {
-            _repository = repository;
+            _userRepository = userRepository;
+            _currentUserService = currentUserService;
         }
 
         public User? Login(string email, string password)
-        {
-            List<User> l = _repository.GetAll().ToList<User>();
-            foreach (var usera in l)
+        { 
+            User? user = _userRepository.GetAll()
+                .FirstOrDefault(x => Equals(x.Email, email));
+
+            if (user != null && user.VerifyPassword(password))
             {
-                Console.WriteLine($"{usera.Name}, {usera.Email}, {usera.Password}");
+                _currentUserService.SetUser(user);
+                return user;
             }
+            
+            throw new CustomException(AppMessage.LoginFailed);
+        }
 
-            User? user = _repository.GetAll()
-                .FirstOrDefault(x => Equals(x.Email, email) && Equals(x.Password, password), null);
-            //.FirstOrDefault(x => (x.Email == email) && (x.Password == password), null);
-
-            return user;
+        public void Logout()
+        {
+            _currentUserService.SetUser(null);
         }
     }
 }
